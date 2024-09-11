@@ -26,3 +26,13 @@ rs.add("localhost:27018")
 rs.add("localhost:27019")
 rs.status()
 db.serverStatus()['repl']
+
+// When you come back after some time
+run 
+mongod -f m1.conf
+mongod -f m2.conf
+mongod -f m3.conf
+mongosh
+use admin
+db.auth("sandeep", passwordPrompt())
+db.serverStatus()['repl']
